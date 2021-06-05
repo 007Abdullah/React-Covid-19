@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { useGlobalState } from '../GlobalContext';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -16,11 +17,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Select() {
     const classes = useStyles();
+
+    let allCountry = useGlobalState();
+
+    console.log(allCountry.Countries, "Country")
+
+
     const [state, setState] = React.useState({
         Countries: ''
     });
 
-    
+
     const handleChange = (event) => {
         const name = event.target.name;
         setState({
@@ -32,7 +39,6 @@ export default function Select() {
     return (
         <div>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-helper">Age</InputLabel>
                 <NativeSelect
                     value={state.age}
                     onChange={handleChange}
@@ -41,11 +47,16 @@ export default function Select() {
                         id: 'age-native-helper',
                     }}
                 >
-                    <option aria-label="None" value="" />
-                    <option value={10}>Ten</option>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
+                    {allCountry?.Countries?.map((eachItem, index) => {
+                        return (
+                            <React.Fragment>
+                                <option value={10}>{eachItem}</option>
+                            </React.Fragment>
+                        )
+                    })}
                 </NativeSelect>
+
+
             </FormControl>
         </div>
     );

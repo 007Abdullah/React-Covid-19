@@ -24,12 +24,12 @@ export function GlobalStateProvider({ children }) {
                 console.log("Data", res.data.Global.TotalConfirmed)
                 setData((prev) => ({
                     ...prev,
-                    Countries: res.data.Countries.map((value, index) => {
+                    Countries: res?.data?.Countries?.map((value, index) => {
                         return value.Country
                     }),
-                    TotalConfirmed: res.data.Global.TotalConfirmed,
-                    TotalDeaths: res.data.Global.TotalDeaths,
-                    TotalRecovered: res.data.Global.TotalRecovered
+                    TotalConfirmed: res?.data?.Global?.TotalConfirmed,
+                    TotalDeaths: res?.data?.Global?.TotalDeaths,
+                    TotalRecovered: res?.data?.Global?.TotalRecovered
                 }))
             }).catch((err) => {
                 console.log("Context Api Error", err);

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, Grid, Paper } from '@material-ui/core';
 import { useGlobalState } from '../GlobalContext';
 import Select from './Select';
+import BarChart from './BarChart';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,8 +44,8 @@ export default function Main() {
                 </div>
             </Grid>
             <br />
-            <h2>Country Data</h2>
-            <Select />
+            <br />
+            <BarChart  />
         </React.Fragment>
     )
 }

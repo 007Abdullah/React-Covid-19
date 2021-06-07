@@ -1,6 +1,6 @@
 var url = window.location.href.split(":");
 if (url[0] === "https") {
-    url = 'https://maintenance-apps.herokuapp.com'
+    url = 'http://covidglobaldata.surge.sh/'
 }
 else {
     url = 'http://localhost:3000'

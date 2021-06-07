@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles, Grid, Paper } from '@material-ui/core';
 import { useGlobalState } from '../GlobalContext';
-import Select from './Select';
 import BarChart from './BarChart';
 
 
@@ -45,7 +44,7 @@ export default function Main() {
             </Grid>
             <br />
             <br />
-            <BarChart  />
+            <BarChart />
         </React.Fragment>
     )
 }
